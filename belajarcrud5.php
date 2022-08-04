@@ -87,6 +87,51 @@
     ?>
 
 </table>
+<h2>BUKU</h2>
+<br/>
+<a href="tambah.php">tambah data </a>
+<br/>
+<br/>
+<table border="1">
+<tr>
+    <th>No</th>
+    <th>Id KATAlog</th>
+    <th>JUDUL buku</th>
+    <th>pengarang</th>
+    <th>tahun terbit</th>
+    <th>penerbit</th>
+</tr>
+
+<?php
+    //belajar koneksi database
+    $servername = "localhost";
+    $username= "root";
+    $password= "";
+    $database= "db_perpusweb";
+    
+    
+    
+    //membuat koneksi
+    $connect = mysqli_connect($servername,$username,$password,$database);
+
+    $no =1;
+    $data = mysqli_query($connect,"SELECT * FROM book ORDER by id_buku");
+    while($d = mysqli_fetch_array($data)) {
+    ?>
+    <tr>
+        <td><?php echo $no++ ?></td>
+        <td><?php echo $d['id_katalog']; ?></td>
+        <td><?php echo $d['judul_buku']; ?></td>
+        <td><?php echo $d['pengarang']; ?></td>
+        <td><?php echo $d['thn_terbit']; ?></td>
+        <td><?php echo $d['penerbit']; ?></td>
+        
+    </tr>
+    <?php
+    }
+    ?>
+
+</table>
     </body>
     </html>
 </html>
