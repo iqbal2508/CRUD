@@ -18,17 +18,7 @@
 </tr>
 
 <?php
-    //belajar koneksi database
-    $servername = "localhost";
-    $username= "root";
-    $password= "";
-    $database= "db_perpusweb";
-    
-    
-    
-    //membuat koneksi
-    $connect = mysqli_connect($servername,$username,$password,$database);
-
+include 'koneksi.php';
     $no =1;
     $data = mysqli_query($connect,"SELECT * FROM anggota  ORDER by id_anggota");
     while($d = mysqli_fetch_array($data)) {
