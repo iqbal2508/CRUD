@@ -4,10 +4,8 @@
     </head>
     <body>
         <h2>ANGGOTA</h2>
-<br/>
+
 <a href="tambah.php">tambah data </a>
-<br/>
-<br/>
 <table border="1">
 <tr>
     <th>No</th>
@@ -15,6 +13,7 @@
     <th>No telp</th>
     <th>alamat</th>
     <th>Email</th>
+    <th>Password</th>
 </tr>
 
 <?php
@@ -29,6 +28,7 @@ include 'koneksi.php';
         <td><?php echo $d['no_telp']; ?></td>
         <td><?php echo $d['alamat']; ?></td>
         <td><?php echo $d['email']; ?></td>
+        <td><?php echo $d['password']; ?></td>
         
     </tr>
     <?php
@@ -37,29 +37,16 @@ include 'koneksi.php';
 
 </table>
 <h2>ADMIN</h2>
-<br/>
-<a href="tambah.php">tambah data </a>
-<br/>
-<br/>
+<a href="tambaha.php">tambah data </a>
 <table border="1">
 <tr>
     <th>No</th>
-    <th>Username</th>
-    <th>password</th>
+    <th>Id admin</th>
+    <th>username</th>
     
 </tr>
 
 <?php
-    //belajar koneksi database
-    $servername = "localhost";
-    $username= "root";
-    $password= "";
-    $database= "db_perpusweb";
-    
-    
-    
-    //membuat koneksi
-    $connect = mysqli_connect($servername,$username,$password,$database);
 
     $no =1;
     $data = mysqli_query($connect,"SELECT * FROM admin  ORDER by id_admin");
@@ -67,8 +54,8 @@ include 'koneksi.php';
     ?>
     <tr>
         <td><?php echo $no++ ?></td>
+        <td><?php echo $d['id_admin']; ?></td>
         <td><?php echo $d['username']; ?></td>
-        <td><?php echo $d['password']; ?></td>
         
         
     </tr>
@@ -78,10 +65,7 @@ include 'koneksi.php';
 
 </table>
 <h2>BUKU</h2>
-<br/>
-<a href="tambah.php">tambah data </a>
-<br/>
-<br/>
+<a href="tambahb.php">tambah data </a>
 <table border="1">
 <tr>
     <th>No</th>
@@ -93,16 +77,7 @@ include 'koneksi.php';
 </tr>
 
 <?php
-    //belajar koneksi database
-    $servername = "localhost";
-    $username= "root";
-    $password= "";
-    $database= "db_perpusweb";
-    
-    
-    
-    //membuat koneksi
-    $connect = mysqli_connect($servername,$username,$password,$database);
+   
 
     $no =1;
     $data = mysqli_query($connect,"SELECT * FROM book ORDER by id_buku");
